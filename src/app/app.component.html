@@ -1,7 +1,36 @@
 <div class="flex h-screen">
-  <div class="bg-orange-950 h-screen p-5 pt-8">
-    <fa-icon [icon]="faBars" class="text-white text-xl cursor-pointer"/>
+  <div
+    [ngClass]="open ? 'w-20' : 'w-72'"
+    class="bg-orange-950 h-screen p-5 pt-8"
+  >
+    <fa-icon
+      (click)="toggleMenu()"
+      [icon]="faBars"
+      class="text-white text-xl cursor-pointer"
+    />
+    <h1 class="origin-left font-sans font-thin text-xl text-white mt-1">
+      {{ title }}
+    </h1>
+
+    <!-- Menu Items with Icon -->
+    <div class="mt-12">
+      <ul class="text-white font-sans">
+        <li class="flex gap-3 cursor-pointer p-2 hover:p-2 hover:bg-orange-900 rounded-md" (click)="linkAction()">
+          <span>
+            <fa-icon [icon]="faDashboard"></fa-icon>
+          </span>
+          <span>Dashboard</span>
+        </li>
+        <li class="flex gap-3 cursor-pointer p-2 hover:p-2 hover:bg-orange-900 rounded-md" (click)="linkAction()">
+          <span>
+            <fa-icon [icon]="faUserCog"></fa-icon>
+          </span>
+          <span>Manage Users</span>
+        </li>
+      </ul>
+    </div>
   </div>
+
   <div></div>
 </div>
 
